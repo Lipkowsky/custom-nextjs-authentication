@@ -1,17 +1,22 @@
-import { LogOutButton } from "@/auth/nextjs/components/LogOutButton"
-import { getCurrentUser } from "@/auth/nextjs/currentUser"
-import { Button } from "@/components/ui/button"
+import { LogOutButton } from "@/auth/nextjs/components/LogOutBtn";
+import { getCurrentUser } from "@/auth/nextjs/currentUser";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardDescription,
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import Link from "next/link"
+} from "@/components/ui/card";
+import Link from "next/link";
 
 export default async function HomePage() {
-  const fullUser = await getCurrentUser({ withFullUser: true })
+  // const fullUser = {
+  //   id: "",
+  //   name: "Piotr",
+  //   role: "user",
+  // };
+  const fullUser = await getCurrentUser({ withFullUser: true });
 
   return (
     <div className="container mx-auto p-4">
@@ -44,5 +49,5 @@ export default async function HomePage() {
         </Card>
       )}
     </div>
-  )
+  );
 }

@@ -1,6 +1,6 @@
-import { env } from "@/data/env/server"
-import { OAuthClient } from "./base"
-import { z } from "zod"
+import { env } from "@/data/env/server";
+import { OAuthClient } from "./base";
+import { z } from "zod";
 
 export function createDiscordOAuthClient() {
   return new OAuthClient({
@@ -20,11 +20,11 @@ export function createDiscordOAuthClient() {
         global_name: z.string().nullable(),
         email: z.string().email(),
       }),
-      parser: user => ({
+      parser: (user) => ({
         id: user.id,
         name: user.global_name ?? user.username,
         email: user.email,
       }),
     },
-  })
+  });
 }

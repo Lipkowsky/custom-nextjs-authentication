@@ -1,6 +1,6 @@
-import { env } from "@/data/env/server"
-import { OAuthClient } from "./base"
-import { z } from "zod"
+import { env } from "@/data/env/server";
+import { OAuthClient } from "./base";
+import { z } from "zod";
 
 export function createGithubOAuthClient() {
   return new OAuthClient({
@@ -20,11 +20,11 @@ export function createGithubOAuthClient() {
         login: z.string(),
         email: z.string().email(),
       }),
-      parser: user => ({
+      parser: (user) => ({
         id: user.id.toString(),
         name: user.name ?? user.login,
         email: user.email,
       }),
     },
-  })
+  });
 }
